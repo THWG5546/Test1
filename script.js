@@ -1,4 +1,22 @@
-// Attend que le DOM soit entièrement chargé
+$(document).ready(function () {
+    function stopScroll() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    function allowScroll() {
+        document.body.style.overflow = '';
+    }
+    stopScroll();
+    document.getElementById('btn_submit').addEventListener('click', function (event) {
+        allowScroll();
+        rougeALevresSection.scrollIntoView({ behavior: 'smooth' });
+        event.preventDefault();
+    });
+});
+
+
+
+/*// Attend que le DOM soit entièrement chargé
 document.addEventListener("DOMContentLoaded", function() {
     // Sélectionne le bouton "Se connecter"
     const loginButton = document.querySelector('.submit-button-container button');
@@ -20,4 +38,4 @@ document.addEventListener("DOMContentLoaded", function() {
         // Empêche le comportement par défaut du bouton
         event.preventDefault();
     });
-});
+});*/
