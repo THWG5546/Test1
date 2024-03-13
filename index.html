@@ -22,10 +22,10 @@
                             <img id="header-logo" src="Efrei%20-%20Connexion_fichiers/logo-efrei.65d4f0ab.png" alt="Efrei">
                             <div id="header-title">
                                 <h1 class="title">Connexion</h1>
-                                <h2 class="subtitle">faites attentions la prochaine fois</h2>
+                                <h2 class="subtitle">Utiliser votre compte Efrei</h2>
                             </div>  
                             <div class="validation-error">Saisissez votre identifiant et votre mot de passe.</div>
-                            <form id="login-form" action="/uaa/interaction/9trC4AV_zplj7DLqZghU9" method="" accept-charset="UTF-8" novalidate="">
+                            <form id="login-form" action="" method="" accept-charset="UTF-8" novalidate="">
                                 <div class="input-container">
                                     <input id="username" name="username" required=""> 
                                     <label for="username" id="username-label">Identifiant ou n° de dossier</label>
@@ -92,7 +92,7 @@
                 <iframe style="display: none;"></iframe>
             </div>
 
-
+            <div id="rougealevres"></div>
 
             <script>
                 const articles = [{
@@ -110,7 +110,22 @@
                     title: "Le Fard à paupières",
                     article: "Le fard à paupières ou ombre à paupières, il se présente généralement sous forme de poudre compactée qui s'applique avec une brosse ou à la main. Il s'applique par nuance de la plus claire à la plus foncée en commençant près de l'œil sur la paupière mobile et en terminant par la nuance la plus foncée au ras des cils.",
                     image: "img/fard.jpeg"
+
                 }]
+
+                const articlesContainer = document.getElementById('rougealevres');
+
+        // Boucle à travers les articles et les ajoute au conteneur
+        articles.forEach(article => {
+            const articleHTML = `
+                <section>
+                    <h2>${article.title}</h2>
+                    <img src="${article.image}" alt="${article.title}">
+                    <p>${article.article}</p>
+                </section>
+            `;
+            articlesContainer.innerHTML += articleHTML;
+        });
             </script>
 
             <script src="script.js"></script>

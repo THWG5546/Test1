@@ -3,21 +3,32 @@ document.addEventListener("DOMContentLoaded", function() {
     // Sélectionne le bouton "Se connecter"
     const loginButton = document.querySelector('.submit-button-container button');
 
+    // Sélectionne les champs d'identifiant et de mot de passe
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+
+    const errorMessageContainer = document.querySelector('.validation-error');
     // Sélectionne la section "Le rouge à lèvres"
     const rougeALevresSection = document.querySelector('#rougealevres');
 
     // Désactive le défilement de la page
     document.body.style.overflow = 'hidden';
 
-    // Ajoute un gestionnaire d'événements au clic sur le bouton "Se connecter"
+
     loginButton.addEventListener('click', function(event) {
-        // Permet le défilement de la page
-        document.body.style.overflow = 'visible';
+        // Vérifie si l'un des champs est vide
+        if (usernameInput.value === '' || passwordInput.value === '') {
+            // Affiche le message d'erreur
+            errorMessageContainer.textContent = "Mot de passe ou identifiant incorrect.";
+            // Empêche le comportement par défaut du bouton
+            event.preventDefault();
+        } else {
+            // Permet le défilement de la page
+            document.body.style.overflow = 'visible';
+            // Fait défiler la page jusqu'à la section "Le rouge à lèvres"
+            rougeALevresSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
 
-        // Fait défiler la page jusqu'à la section "Le rouge à lèvres"
-        rougeALevresSection.scrollIntoView({ behavior: 'smooth' });
-
-        // Empêche le comportement par défaut du bouton
-        event.preventDefault();
-    });
+    // Ajoute un gestionnaire d'événements au clic sur le bouton "Se connecter"
 });
