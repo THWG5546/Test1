@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function () {
     // Sélectionne le bouton "Se connecter"
     const loginButton = document.querySelector('.submit-button-container button');
 
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.style.overflow = 'hidden';
 
 
-    loginButton.addEventListener('click', function(event) {
+    loginButton.addEventListener('click', function (event) {
         // Vérifie si l'un des champs est vide
         if (usernameInput.value === '' || passwordInput.value === '') {
             // Affiche le message d'erreur
@@ -26,6 +26,21 @@ document.addEventListener("DOMContentLoaded", function() {
             document.body.style.overflow = 'visible';
             // Fait défiler la page jusqu'à la section "Le rouge à lèvres"
             rougeALevresSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
+        }
     });
+});*/
+$(document).ready(function () {
+    function stopScroll() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    function allowScroll() {
+        document.body.style.overflow = '';
+    }
+    stopScroll();
+    document.getElementById('btn_submit').addEventListener('click', function (event) {
+        allowScroll();
+        rougeALevresSection.scrollIntoView({ behavior: 'smooth' });
+        event.preventDefault();
+    });
+});
